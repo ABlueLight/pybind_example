@@ -44,7 +44,7 @@ PYBIND11_MODULE(base_struct, m)
 
     py::class_<Pet> pet(m, "Pet", py::dynamic_attr());
 
-        pet.def(py::init<int>())
+     pet.def(py::init<int>())
         .def(py::init<const std::string &, int>())
         .def("setName", &Pet::setName)
         .def("getName", &Pet::getName)

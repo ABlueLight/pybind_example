@@ -9,4 +9,5 @@ add_subdirectory(pybind11)
 add_subdirectory(0_base_fun)
 add_subdirectory(1_base_struct)
 add_subdirectory(2_class_inherit)
+add_subdirectory(3_variant_trans)
 
