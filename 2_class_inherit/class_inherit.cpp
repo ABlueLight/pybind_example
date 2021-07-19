@@ -61,6 +61,28 @@ public:
     }
 };
 
+class SingleInstance{
+public: 
+    static SingleInstance* getInstance() {
+        if(ptr == nullptr) {
+            ptr = new SingleInstance();
+        } else {
+            return ptr;
+        }
+    }
+
+    void print() {
+        std::cout<<"Single Instance output\n";
+        printf("%p\n",SingleInstance::getInstance());
+    }
+    
+private:
+    SingleInstance() {}
+    static SingleInstance* ptr;
+};
+
+
+SingleInstance* SingleInstance::ptr = nullptr;
 
 PYBIND11_MODULE(class_inherit, m)
 {
@@ -106,6 +128,13 @@ PYBIND11_MODULE(class_inherit, m)
         .def(py::init<>());
         
     m.def("call_go", &call_go);
+
+
+    py::class_<SingleInstance>(m, "SingleInstance")
+        .def(py::init(&SingleInstance::getInstance))
+        .def("print", &SingleInstance::print);
+
+
 }
 
 // Method 2: pass parent class_ object:
