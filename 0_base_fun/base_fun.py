@@ -19,3 +19,10 @@ base_fun.overload(1.1,1.1)
 base_fun.overload(1.1)
 
 base_fun.overload(1.0)
+
+a=[1,2,3]
+b=[4,5,6]
+
+base_fun.swap(a,b)
+print(a)
+print(b)
